@@ -1,0 +1,24 @@
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 104px;
+  height: 80px;
+  box-sizing: border-box;
+  color: #ffffff;
+  box-shadow: inset 0 -1px 0 rgba(255, 255, 255, 0.2);
+  background-color: #1a1b22;
+}
+.header_theme_dark {
+  color: #1a1b22;
+  background-color: #ffffff;
+  box-shadow: inset 0 -1px 0 #d1d2d6;
+}
+.header__logo {
+  margin: 0;
+  font-family: "Roboto Slab", Georgia, serif;
+  font-size: 20px;
+  font-weight: 700;
+  line-height: 24px;
+  letter-spacing: 0;
+}

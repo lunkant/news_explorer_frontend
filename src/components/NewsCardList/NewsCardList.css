@@ -17,6 +17,7 @@
 
 .news-card-list__cards {
   width: 100%;
+  max-width: 1232px;
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 16px;

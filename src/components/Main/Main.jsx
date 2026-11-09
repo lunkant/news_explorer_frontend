@@ -1,7 +1,7 @@
 import { useState } from "react";
+import { getNews } from "../../utils/newsApi.js";
 import SearchForm from "../SearchForm/SearchForm.jsx";
 import NewsCardList from "../NewsCardList/NewsCardList.jsx";
-import { sampleArticles } from "../../utils/constants.js";
 import Preloader from "../Preloader/Preloader.jsx";
 import NothingFound from "../NothingFound/NothingFound.jsx";
 import About from "../About/About.jsx";
@@ -12,21 +12,23 @@ function Main() {
   const [hasSearched, setHasSearched] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
   const [results, setResults] = useState([]);
+  const [searchError, setSearchError] = useState("");
 
   const handleSearch = (keyword) => {
     setIsLoading(true);
     setHasSearched(true);
+    setSearchError("");
 
-    setTimeout(() => {
-      const lowerKeyword = keyword.toLowerCase();
-      const foundArticles = sampleArticles.filter(
-        (article) =>
-          article.keyword.toLowerCase().includes(lowerKeyword) ||
-          article.title.toLowerCase().includes(lowerKeyword),
-      );
-      setResults(foundArticles);
-      setIsLoading(false);
-    }, 1000);
+    getNews(keyword)
+      .then((articles) => setResults(articles))
+      .catch((err) => {
+        console.error(err);
+        setResults([]);
+        setSearchError(
+          "Sorry, something went wrong during the request. Please try again later.",
+        );
+      })
+      .finally(() => setIsLoading(false));
   };
 
   return (
@@ -40,7 +42,12 @@ function Main() {
         <SearchForm onSearch={handleSearch} />
       </section>
       {hasSearched && isLoading && <Preloader />}
-      {hasSearched && !isLoading && results.length === 0 && <NothingFound />}
+      {hasSearched && !isLoading && searchError && (
+        <p className="main__error">{searchError}</p>
+      )}
+      {hasSearched && !isLoading && !searchError && results.length === 0 && (
+        <NothingFound />
+      )}
       {hasSearched && !isLoading && results.length > 0 && (
         <NewsCardList cards={results} />
       )}

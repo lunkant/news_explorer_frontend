@@ -9,11 +9,11 @@
 
 .preloader__circle {
   display: block;
-  width: 74px;
-  height: 74px;
+  width: 50px;
+  height: 50px;
   box-sizing: border-box;
-  border: 1px solid #444444;
-  border-bottom-color: #d1d2d6;
+  border: 4px solid #444444;
+  border-bottom-color: #888;
   border-radius: 50%;
   animation: preloader-spin 0.75s linear infinite;
 }

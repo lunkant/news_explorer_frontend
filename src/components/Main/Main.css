@@ -27,3 +27,11 @@
   line-height: 24px;
   margin: 0;
 }
+.main__error {
+  margin: 0;
+  padding: 80px 0;
+  font-size: 18px;
+  line-height: 24px;
+  text-align: center;
+  color: #b6bcbf;
+}

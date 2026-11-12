@@ -3,7 +3,7 @@ import { useLocation } from "react-router-dom";
 
 import "./Header.css";
 
-function Header({ isLoggedIn, onSignInClick, onSignOut }) {
+function Header({ isLoggedIn, userName, onSignInClick, onSignOut }) {
   const location = useLocation();
   const isSavedNewsPage = location.pathname === "/saved-news";
 
@@ -12,6 +12,7 @@ function Header({ isLoggedIn, onSignInClick, onSignOut }) {
       <p className="header__logo">NewsExplorer</p>
       <Navigation
         isLoggedIn={isLoggedIn}
+        userName={userName}
         onSignInClick={onSignInClick}
         onSignOut={onSignOut}
       />

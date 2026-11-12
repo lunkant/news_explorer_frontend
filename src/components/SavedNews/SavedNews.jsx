@@ -1,9 +1,19 @@
+import SavedNewsHeader from "../SavedNewsHeader/SavedNewsHeader.jsx";
+import { NewsCardList } from "../NewsCardList/NewsCardList.jsx";
 import "./SavedNews.css";
 
-function SavedNews() {
+function SavedNews({ userName, savedArticles, onRemoveClick }) {
   return (
     <main className="saved-news">
-      <h1 className="saved-news__title">Elise, you have 5 saved articles</h1>
+      <SavedNewsHeader userName={userName} savedArticles={savedArticles} />
+
+      {savedArticles.length > 0 && (
+        <NewsCardList
+          cards={savedArticles}
+          isSavedNewsPage={true}
+          onRemoveClick={onRemoveClick}
+        />
+      )}
     </main>
   );
 }

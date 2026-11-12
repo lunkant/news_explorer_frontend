@@ -1,6 +1,6 @@
 const API_KEY = import.meta.env.VITE_NEWS_API_KEY;
 const BASE_URL = import.meta.env.PROD
-  ? "https://nomoreparties.co/news/v2/everything"
+  ? "https://news-api-proxy.up.railway.app/news/v2/everything"
   : "https://newsapi.org/v2/everything";
 
 function checkResponse(res) {

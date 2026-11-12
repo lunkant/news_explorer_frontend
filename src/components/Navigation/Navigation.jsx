@@ -3,7 +3,7 @@ import "./Navigation.css";
 import logoutBtnWht from "../../images/logout_button_white.svg";
 import logoutBtnBlk from "../../images/logout_button_black.svg";
 
-function Navigation({ isLoggedIn, onSignInClick, onSignOut }) {
+function Navigation({ isLoggedIn, userName, onSignInClick, onSignOut }) {
   const location = useLocation();
   const isSavedNewsPage = location.pathname === "/saved-news";
   const logoutButtonIcon = isSavedNewsPage ? logoutBtnBlk : logoutBtnWht;
@@ -40,7 +40,7 @@ function Navigation({ isLoggedIn, onSignInClick, onSignOut }) {
           className="navigation__button navigation__button_logout"
           onClick={onSignOut}
         >
-          Placeholder Name
+          {userName}
           <img
             src={logoutButtonIcon}
             alt=""

@@ -128,3 +128,24 @@
 .modal__submit-button:not(:disabled):hover {
   background-color: #347eff;
 }
+
+@media (max-width: 639px) {
+  .modal {
+    align-items: flex-end;
+  }
+
+  .modal__container {
+    width: 100%;
+    height: calc(100% - 56px);
+    padding: 16px;
+    border-radius: 16px 16px 0 0;
+  }
+
+  .modal__close-button {
+    top: -40px;
+    right: 16px;
+    width: 24px;
+    height: 24px;
+    background-image: url("../../images/close_button_mobile.svg");
+  }
+}

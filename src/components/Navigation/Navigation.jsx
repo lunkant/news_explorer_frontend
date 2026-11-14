@@ -3,20 +3,37 @@ import "./Navigation.css";
 import logoutBtnWht from "../../images/logout_button_white.svg";
 import logoutBtnBlk from "../../images/logout_button_black.svg";
 
-function Navigation({ isLoggedIn, userName, onSignInClick, onSignOut }) {
+function Navigation({
+  isLoggedIn,
+  userName,
+  onSignInClick,
+  onSignOut,
+  isMenuOpen,
+  onMenuClose,
+}) {
   const location = useLocation();
   const isSavedNewsPage = location.pathname === "/saved-news";
-  const logoutButtonIcon = isSavedNewsPage ? logoutBtnBlk : logoutBtnWht;
+  const logoutButtonIcon =
+    isSavedNewsPage && !isMenuOpen ? logoutBtnBlk : logoutBtnWht;
+
+  const handleSignInClick = () => {
+    onMenuClose();
+    onSignInClick();
+  };
+
+  const handleSignOutClick = () => {
+    onMenuClose();
+    onSignOut();
+  };
+
+  const getLinkClassName = ({ isActive }) =>
+    `navigation__link ${isActive ? "navigation__link_active" : ""}`;
+
   return (
-    <nav className="navigation">
+    <nav className={`navigation ${isMenuOpen ? "navigation_opened" : ""}`}>
       <ul className="navigation__links">
         <li className="navigation__item">
-          <NavLink
-            to="/"
-            className={({ isActive }) =>
-              `navigation__link ${isActive ? "navigation__link_active" : ""}`
-            }
-          >
+          <NavLink to="/" className={getLinkClassName} onClick={onMenuClose}>
             Home
           </NavLink>
         </li>
@@ -24,9 +41,8 @@ function Navigation({ isLoggedIn, userName, onSignInClick, onSignOut }) {
           <li className="navigation__item">
             <NavLink
               to="/saved-news"
-              className={({ isActive }) =>
-                `navigation__link ${isActive ? "navigation__link_active" : ""}`
-              }
+              className={getLinkClassName}
+              onClick={onMenuClose}
             >
               Saved articles
             </NavLink>
@@ -38,7 +54,7 @@ function Navigation({ isLoggedIn, userName, onSignInClick, onSignOut }) {
         <button
           type="button"
           className="navigation__button navigation__button_logout"
-          onClick={onSignOut}
+          onClick={handleSignOutClick}
         >
           {userName}
           <img
@@ -51,7 +67,7 @@ function Navigation({ isLoggedIn, userName, onSignInClick, onSignOut }) {
         <button
           type="button"
           className="navigation__button"
-          onClick={onSignInClick}
+          onClick={handleSignInClick}
         >
           Sign in
         </button>

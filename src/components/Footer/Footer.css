@@ -57,3 +57,33 @@
   width: 24px;
   height: 24px;
 }
+
+@media (max-width: 1023px) {
+  .footer {
+    padding: 21px 40px 22px;
+  }
+
+  .footer__links {
+    gap: 16px;
+  }
+}
+
+@media (max-width: 639px) {
+  .footer {
+    flex-direction: column-reverse;
+    align-items: stretch;
+    gap: 38px;
+    padding: 20px 16px 22px;
+  }
+
+  .footer__nav {
+    justify-content: space-between;
+    align-items: flex-start;
+  }
+
+  .footer__links {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 26px;
+  }
+}

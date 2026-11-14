@@ -1,5 +1,5 @@
 import "./About.css";
-import authorImage from "../../images/author_placeholder_image.svg";
+import authorImage from "../../images/Mardochee_pic.jpg";
 
 function About() {
   return (

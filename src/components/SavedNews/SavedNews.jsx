@@ -1,5 +1,5 @@
 import SavedNewsHeader from "../SavedNewsHeader/SavedNewsHeader.jsx";
-import { NewsCardList } from "../NewsCardList/NewsCardList.jsx";
+import NewsCardList from "../NewsCardList/NewsCardList.jsx";
 import "./SavedNews.css";
 
 function SavedNews({ userName, savedArticles, onRemoveClick }) {

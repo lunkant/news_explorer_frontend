@@ -29,3 +29,9 @@
   line-height: 24px;
   color: #b6bcbf;
 }
+
+@media (max-width: 639px) {
+  .nothing-found {
+    padding: 86px 16px 80px;
+  }
+}

@@ -26,3 +26,71 @@
   line-height: 24px;
   letter-spacing: 0;
 }
+
+.header__menu-button {
+  display: none;
+  width: 24px;
+  height: 24px;
+  padding: 0;
+  border: none;
+  background: url("../../images/menu_button_mobile.svg") center / contain
+    no-repeat;
+  cursor: pointer;
+}
+
+.header__menu-button_theme_dark {
+  background-image: url("../../images/menu_button_black_mobile.svg");
+}
+
+.header__menu-button_opened {
+  background-image: url("../../images/close_button_mobile.svg");
+}
+
+.header__overlay {
+  display: none;
+}
+
+@media (max-width: 1023px) {
+  .header {
+    height: 66px;
+    padding: 0 40px;
+  }
+}
+
+@media (max-width: 639px) {
+  .header {
+    height: 56px;
+    padding: 0 16px;
+    z-index: 3;
+  }
+
+  .header_theme_dark {
+    position: relative;
+  }
+
+  .header__logo {
+    font-size: 16px;
+    line-height: 24px;
+  }
+
+  .header__menu-button {
+    display: block;
+  }
+
+  .header_menu_opened {
+    color: #ffffff;
+    background-color: #1a1b22;
+    box-shadow: inset 0 -1px 0 rgba(255, 255, 255, 0.2);
+  }
+
+  .header__overlay {
+    display: block;
+    position: fixed;
+    top: 56px;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    z-index: 1;
+    background-color: rgba(0, 0, 0, 0.5);
+  }
+}

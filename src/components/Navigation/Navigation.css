@@ -1,0 +1,120 @@
+.navigation {
+  display: flex;
+  align-items: center;
+  gap: 42px;
+  height: 100%;
+}
+.navigation__links {
+  display: flex;
+  align-items: center;
+  gap: 42px;
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+.navigation__link {
+  display: flex;
+  align-items: center;
+  line-height: 24px;
+  height: 100%;
+  font-family: "Roboto", Arial, sans-serif;
+  font-size: 18px;
+  font-weight: 500;
+  color: inherit;
+  text-decoration: none;
+}
+.navigation__link_active {
+  box-shadow: inset 0 -3px 0 currentColor;
+}
+.navigation__item {
+  height: 100%;
+}
+.navigation__button {
+  font-family: "Roboto", Arial, sans-serif;
+  font-size: 18px;
+  font-weight: 500;
+  line-height: 24px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: inherit;
+  gap: 16px;
+  padding: 12px 52px;
+  background: transparent;
+  border: 1px solid currentColor;
+  border-radius: 100px;
+  cursor: pointer;
+  transition: opacity 0.2s ease;
+}
+.navigation__link:hover,
+.navigation__button:hover {
+  opacity: 0.8;
+}
+
+@media (max-width: 1023px) {
+  .navigation,
+  .navigation__links {
+    gap: 16px;
+  }
+
+  .navigation__link,
+  .navigation__button {
+    font-size: 16px;
+  }
+
+  .navigation__button {
+    padding: 8px 28px;
+  }
+}
+
+@media (max-width: 639px) {
+  .navigation {
+    display: none;
+  }
+
+  .navigation_opened {
+    display: flex;
+    position: absolute;
+    top: 56px;
+    left: 0;
+    z-index: 2;
+    flex-direction: column;
+    align-items: stretch;
+    gap: 22px;
+    width: 100%;
+    height: auto;
+    padding: 16px 16px 24px;
+    box-sizing: border-box;
+    color: #ffffff;
+    background-color: #1a1b22;
+    border-radius: 0 0 16px 16px;
+  }
+
+  .navigation__links {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0;
+  }
+
+  .navigation__item,
+  .navigation__link {
+    height: auto;
+  }
+
+  .navigation__link {
+    font-size: 18px;
+    line-height: 56px;
+  }
+
+  .navigation__link_active {
+    box-shadow: none;
+  }
+
+  .navigation__button {
+    width: 100%;
+    height: 56px;
+    padding: 0;
+    font-size: 18px;
+  }
+}

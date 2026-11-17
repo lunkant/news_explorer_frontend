@@ -40,6 +40,13 @@ function Header({ isLoggedIn, userName, onSignInClick, onSignOut }) {
         isMenuOpen={isMenuOpen}
         onMenuClose={closeMenu}
       />
+      <button
+        type="button"
+        className={menuButtonClassName}
+        onClick={toggleMenu}
+        aria-label={isMenuOpen ? "Close mobile menu" : "Open mobile menu"}
+      />
+
       {isMenuOpen && (
         <div className="header__overlay" onClick={closeMenu}></div>
       )}
